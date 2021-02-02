@@ -3,10 +3,16 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { TrackerComponent } from './tracker/tracker.component';
+import { TransactionHistoryComponent } from './transaction-history/transaction-history.component';
+import { TransactionFormComponent } from './transaction-form/transaction-form.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TrackerComponent,
+    TransactionHistoryComponent,
+    TransactionFormComponent
   ],
   imports: [
     BrowserModule,
