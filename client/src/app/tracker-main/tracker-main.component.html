@@ -1,0 +1,90 @@
+<!-- <p>tracker-main works!</p> -->
+
+<div *ngIf="isLoading">
+  <div class="spinner-grow text-primary" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+  <div class="spinner-grow text-secondary" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+  <div class="spinner-grow text-success" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+  <div class="spinner-grow text-danger" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+  <div class="spinner-grow text-warning" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+  <div class="spinner-grow text-info" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+  <div class="spinner-grow text-dark" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+</div>
+
+<div *ngIf="!isLoading">
+
+  <h4>Your Balance is:</h4>
+  <h4 class="mb-2">${{balance}}</h4>
+
+  <div class="card-group mb-3">
+
+    <div class="card" style="width: 10rem;">
+      <div class="card-body">
+        <h5 class="card-title text-info">Income : ${{ income }}</h5>
+      </div>
+      <!-- <div class="card-footer">
+        <small class="text-muted">Last updated 3 mins ago</small>
+      </div> -->
+    </div>
+
+    <div class="card" style="width: 10rem;">
+      <div class="card-body">
+        <h5 class="card-title text-danger">Expense : ${{ expense }}</h5>
+      </div>
+      <!-- <div class="card-footer">
+        <small class="text-muted">Last updated 3 mins ago</small>
+      </div> -->
+    </div>
+
+  </div>
+
+  <!--Tracker Component ends here-->
+  <p class="lead" style="font-weight: bolder;">History</p>
+
+  <div class="lead mb-2" *ngIf="isEmpty">
+    No transactions to show..
+  </div>
+
+  <hr>
+  <div class="card mb-2" style="width: 20rem;" *ngIf="!isEmpty">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item" [ngClass]="{'primary-border': transcation.type === 'income', 'danger-border':transcation.type === 'expense' }" *ngFor="let transcation of transactions" style="font-size: large;">{{transcation.text}} : ${{transcation.amount}}</li>
+    </ul>
+  </div>
+
+  <!--transaction-history component end here-->
+  <p class="lead" style="font-weight: bolder;">Add new transaction: </p>
+  <hr>
+  <div style="width: 20rem;">
+    <form action="" [formGroup]="form">
+      <div class="form-group">
+        <label for="Description" >Description</label>
+        <input id="Description" class="form-control" type="text" name="" placeholder="Enter text.." formControlName="description" required>
+        <label for="Amount">Amount</label>
+        <input id="Amount" class="form-control" type="number" name="" placeholder="Amount" formControlName="amount" required>
+        <small class="text-dark" style="font-family: 'Courier New', Courier, monospace;">Enter -ve amount for expense</small>
+        <button class="btn btn-primary btn-block mt-2" type="submit" (click)="addTransaction()">Add Transaction</button>
+      </div>
+    </form>
+
+  </div>
+
+  <!--Transaction form component ends here-->
+
+
+</div>
+
+

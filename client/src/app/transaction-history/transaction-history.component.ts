@@ -14,6 +14,7 @@ export class TransactionHistoryComponent implements OnInit {
 
   ngOnInit(): void {
     this.getdata();
+    console.log('history componenet init..');
   }
 
   getdata():void{
