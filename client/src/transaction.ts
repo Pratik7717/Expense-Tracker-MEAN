@@ -1,4 +1,4 @@
-import { transactionStructure } from "./transactionAbstract";
+import { transactionStructure } from "./transaction.interface";
 
 export const transactions:transactionStructure[]=[
   {type: "income",text: "salary", amount: 1000},

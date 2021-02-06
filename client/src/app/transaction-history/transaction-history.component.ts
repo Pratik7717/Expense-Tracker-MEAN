@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { transactionStructure } from 'src/transactionAbstract';
-import {transactions} from '../../transaction';
+import { Component, Input, OnInit } from '@angular/core';
+import { Transaction } from 'src/transaction.interface';
 
 @Component({
   selector: 'app-transaction-history',
@@ -8,19 +7,10 @@ import {transactions} from '../../transaction';
   styleUrls: ['./transaction-history.component.css']
 })
 export class TransactionHistoryComponent implements OnInit {
-  transactions:transactionStructure[]=[] ;
-  isEmpty:boolean=false;
+  @Input() transactions: Transaction[] = [];
   constructor() { }
 
   ngOnInit(): void {
-    this.getdata();
-    console.log('history componenet init..');
-  }
-
-  getdata():void{
-    this.transactions=transactions;
-    if(this.transactions.length==0)
-      this.isEmpty=true;
   }
 
 
