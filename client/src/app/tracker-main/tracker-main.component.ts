@@ -47,12 +47,12 @@ export class TrackerMainComponent implements OnInit {
 
       for (let i = 0; i < this.transactions.length; i++) {
         const transaction = this.transactions[i];
-        this.balance = this.balance + transaction.amount;
-        if (transaction.amount < 0)
+        if (transaction.type== 'expense')
           this.expense = this.expense + Math.abs(transaction.amount);
-        if (transaction.amount >= 0)
+        if (transaction.type=='income')
           this.income = this.income + Math.abs(transaction.amount);
       }
+      this.balance = this.income - this.expense;
 
       this.isLoading = false;
     })
