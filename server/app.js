@@ -21,9 +21,19 @@ mongoose.connect('mongodb+srv://root-pratik:Pratik@767@cluster0.ien6p.mongodb.ne
 { useNewUrlParser: true, useUnifiedTopology:true }
 );
 
+mongoose.connection.on('connected',()=>{
+  console.log('connected to database')
+});
 
-app.get('/',routes);
+const path = require('path');
 
-app.post('/',routes);
+app.use(express.static('public'));
+app.get('/transaction',routes);
+app.post('/transaction',routes);
+app.get('*',(req,res)=>{
+  res.sendFile(path.join(__dirname,'public/index.html'));
+})
+
+
 
 module.exports=app;

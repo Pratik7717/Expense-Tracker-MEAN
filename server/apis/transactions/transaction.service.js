@@ -9,6 +9,7 @@ exports.save= async (transaction)=>{
 
 exports.find=async ()=>{
   const data=await transactionModel.find();
+  // console.log('req reached to database service')
   return data;
 
 }

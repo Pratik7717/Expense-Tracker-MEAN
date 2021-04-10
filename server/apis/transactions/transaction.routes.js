@@ -3,8 +3,8 @@ const { route } = require('../../app');
 const transactionController=require('./transaction.controller');
 const router=express.Router();
 
-router.get('/',transactionController.find);
+router.get('/transaction',transactionController.find);
 
-router.post('/',transactionController.save)
+router.post('/transaction',transactionController.save)
 
 module.exports=router;
