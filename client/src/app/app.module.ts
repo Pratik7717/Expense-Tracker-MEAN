@@ -10,6 +10,7 @@ import { TrackerMainComponent } from './tracker-main/tracker-main.component';
 import { LoaderComponent } from './loader/loader.component';
 import { TrackerInfoComponent } from './tracker-info/tracker-info.component';
 import { TrackerFormComponent } from './tracker-form/tracker-form.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { TrackerFormComponent } from './tracker-form/tracker-form.component';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

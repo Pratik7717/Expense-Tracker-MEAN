@@ -5,11 +5,13 @@
 </div>
 
 <hr>
+<p *ngIf="transactions.length">Hover over transaction to get delete button.</p>
 <div class="card mb-2" style="width: 20rem;" *ngIf="transactions.length">
   <ul class="list-group list-group-flush">
     <li class="list-group-item" [ngClass]="{'primary-border': transcation.type
       === 'income', 'danger-border':transcation.type === 'expense' }"
-      *ngFor="let transcation of transactions" style="font-size: large;">{{transcation.text}}
-      : ${{transcation.amount}}</li>
+      *ngFor="let transcation of transactions;index as i" style="font-size: large;">{{transcation.text}}
+      : ${{transcation.amount}} <button class="delete-btn" (click)="deleteTransaction(transactions[i]._id)">x</button>
+    </li>
   </ul>
 </div>

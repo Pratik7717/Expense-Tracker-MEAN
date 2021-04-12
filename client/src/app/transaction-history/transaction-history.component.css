@@ -1,7 +1,27 @@
 .primary-border{
-  border-right: 5px #4285F4 solid;
+  border-right: 5px #2ecc71 solid;
 }
 
 .danger-border{
-  border-right: 5px red solid;
+  border-right: 5px #c0392b solid;
+}
+
+.delete-btn {
+  cursor: pointer;
+  background-color: #e74c3c;
+  border: 0;
+  color: #fff;
+  font-size: 20px;
+  line-height: 20px;
+  padding: 2px 5px;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(-100%, -50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.list-group li:hover .delete-btn {
+  opacity: 1;
 }

@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { HttpService } from 'src/services/http.service';
 import { Transaction } from 'src/transaction.interface';
 
 @Component({
@@ -8,10 +9,21 @@ import { Transaction } from 'src/transaction.interface';
 })
 export class TransactionHistoryComponent implements OnInit {
   @Input() transactions: Transaction[] = [];
-  constructor() { }
+  @Output() transactionDeletedEvent: EventEmitter<boolean> = new EventEmitter<boolean>();
+  constructor(private httpService:HttpService) { }
 
   ngOnInit(): void {
   }
 
+
+  deleteTransaction(transactionId:string):void {
+    const reqBody = {
+      "id": transactionId
+    };
+    console.log('transactionId',transactionId);
+    this.httpService.delete(transactionId).subscribe((response:any) => {
+      this.transactionDeletedEvent.emit(true);
+    });
+  }
 
 }

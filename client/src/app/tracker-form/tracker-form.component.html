@@ -9,16 +9,23 @@
       <label for="Amount">Amount</label>
       <input id="Amount" class="form-control" type="number" name=""
         placeholder="Amount" formControlName="amount" required>
-        <div>
-          <label>
-            <input type="radio" value="income" formControlName="type">
-            <span>income</span>
-          </label>
-          <label>
-            <input type="radio" value="expense" formControlName="type">
-            <span>expense</span>
+
+        <div class="form-check mt-2">
+          <input class="form-check-input" type="radio" id="flexRadioDefault1" formControlName="type"
+          value="income">
+          <label class="form-check-label" for="flexRadioDefault1">
+            Income
           </label>
         </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="radio" id="flexRadioDefault2" formControlName="type"
+          value="expense">
+          <label class="form-check-label" for="flexRadioDefault1">
+            Expense
+          </label>
+        </div>
+
       <button [disabled]="form.invalid" class="btn btn-primary btn-block mt-2"
         type="submit"
         (click)="addTransaction()">Add Transaction</button>

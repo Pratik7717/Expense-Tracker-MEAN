@@ -6,7 +6,7 @@
   <app-tracker-info [expense]="expense" [balance]="balance" [income]="income"></app-tracker-info>
 
 
-  <app-transaction-history [transactions]="transactions"></app-transaction-history>
+  <app-transaction-history [transactions]="transactions" (transactionDeletedEvent)="onTransactionAdded()"></app-transaction-history>
 
   <app-tracker-form (transactionAddedEvent)="onTransactionAdded()"></app-tracker-form>
 

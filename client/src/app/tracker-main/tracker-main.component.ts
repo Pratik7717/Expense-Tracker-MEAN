@@ -34,7 +34,7 @@ export class TrackerMainComponent implements OnInit {
     this.isLoading = true;
     this.httpService.get().subscribe((data: any) => {
       this.transactions = data.data;
-
+      // console.log('transactions',this.transactions);
       this.isEmpty = false;
       this.balance = 0;
       this.income = 0;

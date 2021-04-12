@@ -19,7 +19,7 @@ export class TrackerFormComponent implements OnInit {
   }
   buildForm(): FormGroup {
     return this.fb.group({
-      type: ['income'],
+      type: [null],
       description: [null, [Validators.required]],
       amount: [null, [Validators.required]]
     });
