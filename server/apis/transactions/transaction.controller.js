@@ -28,3 +28,29 @@ exports.find= async (req,res,next)=>{
     console.log('err in find controller method get rq: ',err);
   }
 }
+
+exports.delete=async (req,res,next)=>{
+  try {
+    // console.log(req.params.id);
+    const transaction=await transactionService.delete(req.params.id);
+    if(!transaction) {
+      return res.status(404).json({
+        success: false,
+        error: 'No transaction found'
+      });
+    }
+
+    return res.status(200).json({
+      success: true,
+      data: {}
+    });
+
+  } catch (err) {
+    console.log(err);
+    return res.status(500).json({
+      success: false,
+      error: 'Server Error'
+    });
+  }
+
+}

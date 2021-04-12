@@ -14,3 +14,7 @@ exports.find=async ()=>{
 
 }
 
+exports.delete = async (id) => {
+  return await transactionModel.findByIdAndRemove(id);
+}
+

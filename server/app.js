@@ -30,6 +30,7 @@ const path = require('path');
 app.use(express.static('public'));
 app.get('/transaction',routes);
 app.post('/transaction',routes);
+app.delete('/transaction/:id',routes);
 app.get('*',(req,res)=>{
   res.sendFile(path.join(__dirname,'public/index.html'));
 })
