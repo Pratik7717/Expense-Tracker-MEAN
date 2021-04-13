@@ -1,8 +1,10 @@
 const express = require('express');
+const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const routes=require('./apis/transactions/transaction.routes');
 const app=express();
 
+dotenv.config();
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header(
@@ -16,8 +18,11 @@ app.use((req, res, next) => {
   next();
 });
 app.use(express.json());
-
-mongoose.connect('mongodb+srv://root-pratik:Pratik@767@cluster0.ien6p.mongodb.net/expense-tracker?retryWrites=true&w=majority',
+let user=process.env['DB_USER'];
+// console.log('user',user);
+let passwd=process.env['DB_PASSWD'];
+let name=process.env['DB_NM'];
+mongoose.connect(`mongodb+srv://${user}:${passwd}@cluster0.ien6p.mongodb.net/${name}?retryWrites=true&w=majority`,
 { useNewUrlParser: true, useUnifiedTopology:true }
 );
 
